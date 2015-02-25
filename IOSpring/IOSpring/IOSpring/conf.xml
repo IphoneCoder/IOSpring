@@ -1,0 +1,14 @@
+<beans>
+    <namesapce id='com.customer'>
+        <bean id='customerAspect' class='CustomerAspectTest'/>
+        <bean id='customerTest' class='CustomerTest'/>
+    </namespace>
+    <bean id='aspectTarget' class='AspectTarget'/>
+    <config>
+        <aspect id="myAop" ref='aspectTarget'>
+            <pointcut id='target' expression='com.customer|*|execute'></pointcut>
+            <before method='customerAspectBeforMethodA' pointcut-ref='target'/>
+            <after method='customerAspectAfterMethodA' pointcut-ref='target'/>
+            </aspect>
+    </config>
+</beans>
